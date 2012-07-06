@@ -1,0 +1,29 @@
+== This is a toy app
+
+Pollpole is a toy rails app that demonstrates refreshing state without polling.  A user goes to the homepage and can click on different examples.  The app will demonstrate and print out information showing the internal state of the program that will make different background job scheduling strategies more interactive.
+
+The user goes to the homepage.  In this example a user will create a race involving flagpole object with different heights.  A climber will climb the flagpole and ring a bell while a judge stands at the bottom timing the race.  The judge at the bottom of the flagpole will hear the bell (notify) and do something (stop their watch?  walk away?  tip the flagpole over?)
+
+So, as dumb as this is, the three kinds of events that will be run are:
+- a 0 second process
+- a 5 second process
+- a long running 2 minute process
+
+There will also be a polling judge which doesn't have a bell to listen for, instead they have to observe the racer by polling constantly.
+
+Each of these processes can be backgrounded. In other words, some will run
+in the browser request. However, the more typical thing to do is to background
+the process with delayed_job or equivalent. In this case, the browser won't
+be able to poll state. Because of this, we will have to listen to a channel
+to wait for the status of the job (faye).
+
+The tricky part is going to be wiring up the backend to the browser.  Faye may make this easier but something like delayed_job will not.  I have a feeling that browser polling will be needed for that example and probably beanstalkd.
+
+In the end, it will practice:
+- faye
+- ajax
+- delayed_job (again)
+- beanstalkd
+- job scheduling abstraction (although easy with delayed_job, would be nice
+to write this cleanly)
+
