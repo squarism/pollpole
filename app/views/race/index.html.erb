@@ -1,0 +1,10 @@
+<h1>Races</h1>
+
+<table>
+  <th>Job checking strategy</th>
+  <th></th>
+  <tr>
+    <td><b>Polling</b></td>
+    <td><%= link_to 'new race', {:controller => 'job', :id => 'polling', :action => 'new' }, :remote => false %> (watch as the browser spins and waits)</td>
+  </tr>
+</table>

@@ -1,4 +1,11 @@
 Pollpole::Application.routes.draw do
+  # get "job/new"
+  # get "race/index"
+
+  resources :race
+  match 'job/new/:id' => 'job#new'
+  # resources :job
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -28,4 +28,5 @@ group :development do
   gem 'guard'
   gem 'guard-spork'
   gem 'spork-testunit'
+  gem 'thin'
 end

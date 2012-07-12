@@ -27,3 +27,7 @@ In the end, it will practice:
 - job scheduling abstraction (although easy with delayed_job, would be nice
 to write this cleanly)
 
+
+== Dev stuff
+- All monkey patches are in config/initializers/monkey_pathces.rb
+
