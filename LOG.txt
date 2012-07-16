@@ -1,0 +1,6 @@
+================================
+= Sun Jul 15 21:56:57 EDT 2012 =
+================================
+Working on the async race creation bit.  The switching statements in race_controller are pretty bad but I guess this is just a demo.  It's not very REST like this.  @pole_race = PoleRace.new was a big issue.  Scope problems.  It needs to exist at the exact right time.  The view has to detect if it's nil.  The initializer in Judge is the thing that has to control the score.  So this is a problem because the client needs the score ID in order to retrieve the race time.  So basically, there are a bunch of AJAX calls all over the place to make it all come together but it's really confusing to read and follow (much less have written).
+
+For sure, a lot of this is going to fall apart when trying to do the beanstalkd bits.  I wish I could create a Job interface/class that would wrap up all this nonsense and make this better.

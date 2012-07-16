@@ -29,5 +29,5 @@ to write this cleanly)
 
 
 == Dev stuff
-- All monkey patches are in config/initializers/monkey_pathces.rb
+- All monkey patches are in config/initializers/monkey_patches.rb
 

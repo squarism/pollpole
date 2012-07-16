@@ -18,14 +18,4 @@ class DelayedJobController < ApplicationController
     end
   end
   
-  def new
-    respond_with @pole_race do |format|
-      format.json {
-        #@pole_race = PoleRace.new
-        #job = @pole_race.delay.start
-        #render :json => {:job => job.id}.to_json
-      }
-    end
-  end
-  
 end
