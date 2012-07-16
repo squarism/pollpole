@@ -1,0 +1,43 @@
+<% content_for :head do %>
+  <%= javascript_include_tag 'race' %>
+
+  <% if params[:id] == "delayed_job" %>
+    <script type="text/javascript" charset="utf-8">
+      $(document).ready(function() {
+        start_dj_race();
+      });
+    </script>
+  <% end %>
+<% end %>
+
+<%# debug params %>
+
+<div class='float_left'>
+<h2>Race Results</h2>
+<table class='race_table'>
+  <tr id="race_time_row">
+    <td>Race time</td>
+    <%# continued trickiness with @pole_race in lifecycle %>
+    <%# look at all these conditionals %>
+    <td><%= @pole_race.nil? ? "" : @pole_race.judge.time %></td>
+  </tr>
+  <tr>
+    <td>Race judge</td>
+    <td><%= @pole_race.nil? ? "" : @pole_race.judge.name %></td>
+  </tr>
+  <tr>
+    <td>Racer</td>
+    <td><%= @pole_race.nil? ? "" : @pole_race.racer.name %></td>
+  </tr>
+  <tr id="score_id_row">
+    <td>Score ID</td>
+    <td><%= @pole_race.nil? ? "" : @pole_race.judge.score.id %></td>
+  </tr>
+
+
+</table>
+</div>
+
+<div class='float_right'>
+<%= image_tag 'flagpole_climber.jpg', :class => 'float_right' %>
+</div>

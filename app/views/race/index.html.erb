@@ -6,11 +6,11 @@
   
   <tr>
     <td><b>Polling</b></td>
-    <td><%= link_to 'new race', {:controller => 'job', :id => 'polling', :action => 'new' }, :remote => false %> (watch as the browser spins and waits)</td>
+    <td><%= link_to 'new race', {:controller => 'race', :id => 'polling', :action => 'new' }, :remote => false %> (watch as the browser spins and waits)</td>
   </tr>
   <tr>
     <td><b>Delayed Job</b></td>
-    <td><%= link_to 'new race', {:controller => 'job', :id => 'delayed_job', :action => 'new', :format => 'js' }, :remote => true %></td>
+    <td><%= link_to 'new race', {:controller => 'race', :id => 'delayed_job', :action => 'new', :format => 'html' }, :remote => false %></td>
   </tr>
   
 </table>

@@ -13,6 +13,7 @@ end
 
 
 # [ job queue and processing libraries ]
+gem 'delayed_job'
 gem 'delayed_job_active_record'
 gem 'stalker'
 gem 'faye'

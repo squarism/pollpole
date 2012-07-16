@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  number: 2012-07-15 20:26:24
+  string: 
+  string: 
+
+two:
+  number: 2012-07-15 20:26:24
+  string: 
+  string: 

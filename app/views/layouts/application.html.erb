@@ -5,9 +5,14 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <%= yield :head %>
 </head>
 <body>
   <div id="main">
+    <div id="nav">
+      <%= link_to 'Home', root_url %>
+    </div>
+    
     <% if flash[:notice] %><div class="flash notice"><%= flash[:notice] %></div><% end %>
     <% if flash[:error] %><div class="flash error"><%= flash[:error] %></div><% end %>
 

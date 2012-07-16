@@ -1,18 +1,15 @@
 require 'observer'
 
 class PoleRace
-  attr_reader :racer, :judges
+  attr_reader :racer, :judge
   
   def initialize
     @racer = Racer.new
-    @judges = [ ]
-    1.times { @judges << Judge.new }
+    @judge = Judge.new
   end
   
   def start
-    @judges.each do |j|
-      @racer.add_observer j
-    end
+    @racer.add_observer @judge
     @racer.race(rand(5)+1)
   end
   

@@ -14,7 +14,7 @@ pre {
 
 a { color: #000; }
 a:visited { color: #666; }
-a:hover { color: #fff; background-color:#000; }
+a:hover { color: #111; }
 
 #main {
 	background-color: #fff;
@@ -22,6 +22,10 @@ a:hover { color: #fff; background-color:#000; }
 	margin: 5em;
 	height: 30em;
 	padding: 1em;
+}
+
+#nav {
+  padding-bottom: 1em;
 }
 
 .flash {
@@ -53,11 +57,11 @@ a:hover { color: #fff; background-color:#000; }
 	list-style: none;
 }
 
-#products-table {
-	width: 80%;
+.float_right {
+  float:right;
 }
 
-#products-table td,th {
-	text-align: left;
-	width: 15em;
+.float_left {
+  float:left;
 }
+

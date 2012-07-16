@@ -169,6 +169,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  delayed_job
   delayed_job_active_record
   faye
   guard
