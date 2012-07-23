@@ -29,7 +29,6 @@ class RaceController < ApplicationController
         end
       }
     end
-    #respond_with(@job_id = params[:id])
   end
   
   def index
