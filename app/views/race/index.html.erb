@@ -1,16 +1,58 @@
-<h1>Races</h1>
+<div id="log"></div>
 
-<table>
+<h1>Job Queuing Demo</h1>
+<table id="job_creation_table">
   <th>Job checking strategy</th>
-  <th></th>
+  <th>Action</th>
+  <th>Notes</th>
   
   <tr>
-    <td><b>Polling</b></td>
-    <td><%= link_to 'new race', {:controller => 'race', :id => 'polling', :action => 'new' }, :remote => false %> (watch as the browser spins and waits)</td>
+    <td><em>Polling</em></td>
+    <td>
+      <%= link_to 'new race', 
+        {:controller => 'race', :id => 'polling', :action => 'new' }, 
+        :remote => false %>
+    </td>
+    <td>(watch as the browser spins and waits)</td>
   </tr>
   <tr>
-    <td><b>Delayed Job</b></td>
-    <td><%= link_to 'new race', {:controller => 'race', :id => 'delayed_job', :action => 'new', :format => 'html' }, :remote => false %></td>
+    <td><em>Delayed Job</em></td>
+    <td>
+      <%= link_to 'new race', 
+        {:controller => 'race', :id => 'delayed_job', :action => 'new', :format => 'html' },
+        :remote => false %>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><em>Faye</em></td>
+    <td>
+      <%= link_to 'new race', 
+        {:controller => 'faye', :action => 'new', :format => 'js' }, 
+        :remote => true %>
+    </td>
+    <td></td>
   </tr>
   
 </table>
+
+<% if @scores.count >= 1 %>
+<h1>Races</h1>
+<table>
+  <th>ID</th>
+  <th>Time</th>
+  <th>Racer</th>
+  <% @scores.each do |score| %>
+  <tr>
+    <td><%= score.id %></td>
+    <td><%= score.time %></td>
+    <td><%= score.racer %></td>
+  </tr>
+  <% end -%>
+</table>
+
+<br>
+<%= link_to 'delete all scores', delete_scores_path %>
+<br><br>
+
+<% end -%>

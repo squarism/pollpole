@@ -19,6 +19,7 @@ class RaceController < ApplicationController
       format.html { 
         case params[:id]
         when 'faye'
+          # not used, stop doing this style
         when 'polling'
           @pole_race = PoleRace.new
           flash[:notice] = "Started a race with dumb procedural blocking."
@@ -32,6 +33,7 @@ class RaceController < ApplicationController
   end
   
   def index
+    @scores = Score.all
   end
   
   def show
@@ -41,6 +43,12 @@ class RaceController < ApplicationController
         render :json => score.to_json
       }
     end
+  end
+
+  def delete_all
+    Score.delete_all
+    flash[:notice] = "Deleted all scores."
+    redirect_to :root
   end
   
 end

@@ -18,7 +18,6 @@ gem 'delayed_job_active_record'
 gem 'stalker'
 gem 'faye'
 
-
 # [ debug and dev tools ]
 group :development do
   gem 'pry'

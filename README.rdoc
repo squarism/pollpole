@@ -27,6 +27,17 @@ In the end, it will practice:
 - job scheduling abstraction (although easy with delayed_job, would be nice
 to write this cleanly)
 
+== Running it
+For all demos:
+  > bundle
+  > rails s thin start
+
+For the delayed job demo, start this in a new shell:
+  > rake jobs:work
+
+For the faye demo, start this in a new shell:
+  > rackup faye.ru -s thin -E production
+  # Unfortunately, production mode is needed otherwise you'll get Rack::Lint::LintError: Status must be >=100 seen as integer
 
 == Dev stuff
 - All monkey patches are in config/initializers/monkey_patches.rb
