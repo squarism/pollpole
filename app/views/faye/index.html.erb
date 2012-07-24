@@ -1,0 +1,21 @@
+<h1>Faye</h1>
+
+<%= link_to 'new race', 
+        {:controller => 'faye', :action => 'new', :format => 'js' }, 
+        :remote => true %>
+
+<h1>Races</h1>
+<table id='score_table'>
+  <th>ID</th>
+  <th>Time</th>
+  <th>Racer</th>
+  <% @scores.each do |score| %>
+  	<%= render :partial => 'race/score', :locals => { :score => score } %>
+  <% end -%>
+</table>
+
+<br>
+<%= link_to 'delete all scores', delete_scores_path %>
+<br><br>
+
+<%= subscribe_to "/messages/new" %>

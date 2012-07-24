@@ -33,7 +33,6 @@ class RaceController < ApplicationController
   end
   
   def index
-    @scores = Score.all
   end
   
   def show

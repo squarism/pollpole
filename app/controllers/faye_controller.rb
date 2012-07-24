@@ -1,7 +1,14 @@
 class FayeController < ApplicationController
+  respond_to :html, :xml, :json
+
+  def index
+    @scores = Score.all
+  end
+
   def new
     @pole_race = PoleRace.new
     @pole_race.start
-    @message = 'Done with race.'
+    @score = @pole_race.judge.score
   end
+
 end

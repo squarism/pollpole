@@ -16,7 +16,7 @@ end
 gem 'delayed_job'
 gem 'delayed_job_active_record'
 gem 'stalker'
-gem 'faye'
+gem 'private_pub'
 
 # [ debug and dev tools ]
 group :development do

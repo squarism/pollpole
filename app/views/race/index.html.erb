@@ -2,7 +2,7 @@
 
 <h1>Job Queuing Demo</h1>
 <table id="job_creation_table">
-  <th>Job checking strategy</th>
+  <th>Queuing Tech</th>
   <th>Action</th>
   <th>Notes</th>
   
@@ -22,37 +22,16 @@
         {:controller => 'race', :id => 'delayed_job', :action => 'new', :format => 'html' },
         :remote => false %>
     </td>
-    <td></td>
+    <td>(browser polls to refresh partial page, watch with firebug etc)</td>
   </tr>
   <tr>
     <td><em>Faye</em></td>
     <td>
       <%= link_to 'new race', 
-        {:controller => 'faye', :action => 'new', :format => 'js' }, 
-        :remote => true %>
+        {:controller => 'faye', :action => 'index', :format => 'html' }, 
+        :remote => false %>
     </td>
     <td></td>
   </tr>
   
 </table>
-
-<% if @scores.count >= 1 %>
-<h1>Races</h1>
-<table>
-  <th>ID</th>
-  <th>Time</th>
-  <th>Racer</th>
-  <% @scores.each do |score| %>
-  <tr>
-    <td><%= score.id %></td>
-    <td><%= score.time %></td>
-    <td><%= score.racer %></td>
-  </tr>
-  <% end -%>
-</table>
-
-<br>
-<%= link_to 'delete all scores', delete_scores_path %>
-<br><br>
-
-<% end -%>
