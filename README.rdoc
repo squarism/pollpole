@@ -1,15 +1,23 @@
 == This is a toy app
 
-Pollpole is a toy rails app that demonstrates refreshing state without polling.  A user goes to the homepage and can click on different examples.  The app will demonstrate and print out information showing the internal state of the program that will make different background job scheduling strategies more interactive.
+Pollpole is a toy rails app that demonstrates background processing.  A user can click on different examples that start a long running process.  Then the app will demonstrate and print out the state of the the process with and without polling.  The object is not to poll constantly for when the job is done.  So in the spirit of not polling, there will be several "smarter" ways to do background jobs.
 
-The user goes to the homepage.  In this example a user will create a race involving flagpole object with different heights.  A climber will climb the flagpole and ring a bell while a judge stands at the bottom timing the race.  The judge at the bottom of the flagpole will hear the bell (notify) and do something (stop their watch?  walk away?  tip the flagpole over?)
+The PoleRace object is a contrived program that serves as a unit of work to be done.  It's complex enough to be more interesting than a sleep but not so complex that it subtracts from the job queuing focus of this app.  PoleRace is the race activity itself.  It has a racer and a judge.  When the race is started, the judge observes the racer.  When the racer completes climbing the pole, they ring a bell and that notifies the Judge that the race is over.  The judge stops their watch and the race time is stored.
 
-So, as dumb as this is, the three kinds of events that will be run are:
-- a 0 second process
-- a 5 second process
-- a long running 2 minute process
+Interestingly, the Judge time is slightly longer than the real system time of the race because of the update method call.  The race, judge and racer objects are all in the extras directory, autoloaded as libraries and would print their output to STDOUT if you ran them in the rails console.
 
-There will also be a polling judge which doesn't have a bell to listen for, instead they have to observe the racer by polling constantly.
+In the cases where the PoleRace is scheduled in the job queue, care must be taken to ensure that unpopulated fields are not used too soon.  For example, the race will not have a time until it is completed.  In asynchronous cases, the browser will not know when the race is done unless they watch for the scores being posted.
+
+So in summary, the logical ordering of events goes something like this:
+- A race is created by the browser (client).
+- The browser starts a polling watch to check for jobs (js timer and ajax).
+- A judge watches a racer (from a Ruby perspective).
+- A racer takes some time to climb a pole (random sleep).
+- The judge sees the racer finish and records the time.
+- The judge posts the time (to a database).
+- When the client sees no job anymore, the race must be done.
+- The client timer stops and the client fetches the score (in JSON format).
+- The client updates the DOM with the score data.
 
 Each of these processes can be backgrounded. In other words, some will run
 in the browser request. However, the more typical thing to do is to background
@@ -24,6 +32,7 @@ In the end, it will practice:
 - ajax
 - delayed_job (again)
 - beanstalkd
+- redis + girl_friday/resque
 - job scheduling abstraction (although easy with delayed_job, would be nice
 to write this cleanly)
 
