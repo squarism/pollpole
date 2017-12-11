@@ -39,13 +39,13 @@ to write this cleanly)
 == Running it
 For all demos:
   > bundle
-  > rails s thin start
+  > rails s
 
 For the delayed job demo, start this in a new shell:
   > rake jobs:work
 
 For the faye demo, start this in a new shell:
-  > rackup private_pub.ru -s thin -E production
+  > rackup private_pub.ru -E production
   # Unfortunately, production mode is needed otherwise you'll get Rack::Lint::LintError: Status must be >=100 seen as integer
 
 == Dev stuff

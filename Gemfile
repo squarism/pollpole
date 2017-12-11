@@ -1,16 +1,15 @@
 source 'https://rubygems.org'
 
-# [ stock rails 3.2 gems ]
-gem 'rails', '3.2.2'
+gem 'rails', '4.2.10'
 gem 'sqlite3'
 gem 'jquery-rails'
+gem 'responders'
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
 end
-
 
 # [ job queue and processing libraries ]
 gem 'delayed_job'
@@ -24,9 +23,8 @@ group :development do
   gem 'pry-nav'
   gem 'spork'
   gem 'rb-inotify' if RUBY_PLATFORM.downcase.include?("linux")
-  gem 'rb-fsevent', "~> 0.9.0" if RUBY_PLATFORM.downcase.include?("darwin")
+  gem 'rb-fsevent'
   gem 'guard'
   gem 'guard-spork'
   gem 'spork-testunit'
-  gem 'thin'
 end
