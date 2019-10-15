@@ -80,7 +80,7 @@ GEM
     faye-websocket (0.10.7)
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.5.1)
-    ffi (1.9.18)
+    ffi (1.11.1)
     formatador (0.2.5)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -225,6 +225,7 @@ DEPENDENCIES
   pry-nav
   rails (= 4.2.10)
   rb-fsevent
+  rb-inotify
   responders
   sass-rails
   spork
