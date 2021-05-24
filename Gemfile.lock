@@ -35,8 +35,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    addressable (2.5.2)
-      public_suffix (>= 2.0.2, < 4.0)
+    addressable (2.7.0)
+      public_suffix (>= 2.0.2, < 5.0)
     arel (6.0.4)
     beanstalk-client (1.1.1)
     builder (3.2.3)
@@ -58,16 +58,16 @@ GEM
     delayed_job_active_record (4.1.2)
       activerecord (>= 3.0, < 5.2)
       delayed_job (>= 3.0, < 5)
-    em-http-request (1.1.5)
+    em-http-request (1.1.7)
       addressable (>= 2.3.4)
       cookiejar (!= 0.3.1)
       em-socksify (>= 0.3)
       eventmachine (>= 1.0.3)
       http_parser.rb (>= 0.6.0)
-    em-socksify (0.3.1)
+    em-socksify (0.3.2)
       eventmachine (>= 1.0.0.beta.4)
     erubis (2.7.0)
-    eventmachine (1.2.5)
+    eventmachine (1.2.7)
     execjs (2.7.0)
     faye (1.2.4)
       cookiejar (>= 0.3.0)
@@ -136,7 +136,7 @@ GEM
       slop (~> 3.4)
     pry-nav (0.2.4)
       pry (>= 0.9.10, < 0.11.0)
-    public_suffix (3.0.1)
+    public_suffix (4.0.6)
     rack (1.6.8)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -225,6 +225,7 @@ DEPENDENCIES
   pry-nav
   rails (= 4.2.10)
   rb-fsevent
+  rb-inotify
   responders
   sass-rails
   spork
